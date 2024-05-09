@@ -1,0 +1,25 @@
+﻿@model EBanking.Views.User.TransferViewModel
+@{
+    ViewData["Title"] = "Превод към друга сметка";
+}
+
+<h1>Превод към друга сметка</h1>
+
+<form asp-controller="User" asp-action="Transfer" method="post">
+    <div>
+        <label asp-for="SendingAccountId">От сметка:</label>
+        <select asp-for="SendingAccountId" asp-items="@Model.AccountsSelectList"></select>
+        <span asp-validation-for="SendingAccountId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ReceiverAccountId">Към сметка:</label>
+        <select asp-for="ReceiverAccountId" asp-items="@Model.AccountsSelectList"></select>
+        <span asp-validation-for="ReceiverAccountId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Amount">Стойност:</label>
+        <input asp-for="Amount" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <button type="submit">Извърши превод</button>
+</form>

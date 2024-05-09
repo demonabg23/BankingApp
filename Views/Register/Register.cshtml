@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model EBanking.Views.Register.RegisterViewModel
+
+<h1>Регистрация на потребител</h1>
+
+<form asp-controller="User" asp-action="Register" method="post">
+    <div>
+        <label asp-for="Username">Потребителско име:</label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password">Парола:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ConfirmPassword">Повтори паролата:</label>
+        <input asp-for="ConfirmPassword" type="password" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="FullName">Име:</label>
+        <input asp-for="FullName" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email">Имейл:</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <button type="submit">Регистрирай се</button>
+</form>
+

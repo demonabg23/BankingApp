@@ -1,0 +1,48 @@
+﻿@model Dictionary<EBanking.Data.Entities.UserAccount, IEnumerable<EBanking.Data.Entities.Transaction>>
+
+@{
+    ViewData["Title"] = "Мои сметки";
+}
+
+<h1>Мои сметки</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table>
+        <thead>
+        <tr>
+            <th>Име на сметка</th>
+            <th>Текущ баланс</th>
+            <th>Последни транзакции</th>
+            <th>Операции</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.Key.FriendlyName</td>
+                <td>@account.Key.Balance</td>
+                <td>
+                    <ul>
+                        @foreach (var transaction in account.Value)
+                        {
+                            var transactionDescription = transaction.Amount > 0 ? "Deposit" : "Withdrawal";
+                            <li>@transactionDescription - @transaction.Amount</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <a href="/CreateAccount">Откриване на сметка</a>
+                    <a href="/Transfer">Превод към друга сметка</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Няма налични сметки.</p>
+}
+

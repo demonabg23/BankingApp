@@ -1,0 +1,19 @@
+﻿@model EBanking.Views.Login.LoginViewModel
+
+@{
+    ViewData["Title"] = "Вход в системата";
+}
+
+<h1>Вход в системата</h1>
+
+<<form asp-controller="User" asp-action="Login" method="post">
+    <div>
+        <label asp-for="Username">Потребителско име:</label>
+        <input asp-for="Username" />
+    </div>
+    <div>
+        <label asp-for="Password">Парола:</label>
+        <input asp-for="Password" type="password" />
+    </div>
+    <button type="submit">Влез</button>
+</form>

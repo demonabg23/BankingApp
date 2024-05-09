@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model EBanking.Views.User.CreateAccountViewModel
+
+@{
+    ViewData["Title"] = "Откриване на сметка";
+}
+
+<h1>Откриване на сметка</h1>
+
+<form asp-controller="User" asp-action="CreateAccount" method="post">
+    <div>
+        <label asp-for="FriendlyName">Наименование на сметката:</label>
+        <input asp-for="FriendlyName" />
+        <span asp-validation-for="FriendlyName"></span>
+    </div>
+    <button type="submit">Откриване на сметка</button>
+</form>
+
+
+
+
